@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/Searching_truck.css' %}">
+<script src="{% static 'home/Searching_truck.js' %}"></script>
+</head>
+<body>
+    <div class="booking">
+        <img src="{% static 'image/logo.png' %}" alt="">
+        <h2>A-trucks</h2>
+    </div>
+    <div class="bookingNow">
+        <h2>Booking Now</h2>
+        <img src="{% static 'image/3dot.gif' %}" alt="">
+    </div>
+
+
+<form class="setOTP" method="post" action="/VerifyOTP/" enctype="multipart/form-data">{% csrf_token %}
+    <div class="getOTP01">
+        <button type="button" onclick="closeSetOTP()">&#129120;</button>
+    </div>
+    <div class="getOTP02">
+        {% ifequal Verification 'NotVerified' %}
+        <div class="styl102" style="background-color: red; color: black;">Please Enter your OTP</div>
+        {% endifequal %}
+        <div class="styl101">Please Enter your OTP</div>
+        <div class="styl102">A 6-digit OTP sent on SMS</div>
+    </div>
+    <div class="setOTP03">
+        <input type="tel" name="otp" id="OTPVerify" maxlength="6" minlength="6" required>
+    </div>
+    <div class="getOTP04">
+        <button type="submit" style="margin-bottom: 10px;">Next</button>
+    </div>
+    <!-- <a href="">resend OTP</a> -->
+</form>
+</body>
+{% load static %}
+</html>

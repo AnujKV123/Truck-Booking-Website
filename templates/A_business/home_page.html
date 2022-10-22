@@ -1,0 +1,269 @@
+{% extends 'basic.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'A_business/home_page.css' %}">
+{% endblock %}
+
+
+
+{% block title %}
+
+{% endblock %}
+
+
+
+{% block body %}
+{% load static %}
+<div class="container_main_body">
+<div class="container_B">
+    <nav class="A_business_logout">
+        <button id="b_user">User</button>
+    </nav>
+    <div class="logout_body">
+        <ul>
+            <a href="#">Close account</a>
+            <a href="password-reset/">change password</a>
+            <a href="logout">Logout</a>
+        </ul>
+    </div>
+</div>
+<div class="truck_container">
+    <div class="add_btn_div">
+        <button id="add_truck"></button>
+    </div>
+    <div class="add_btn_contant_div">
+        <!-- <p>add truck</p> -->
+    </div>
+    <div class="Terms_Conditions_modal">
+        <h4>please read the following terms & conditions carefully</h4>
+        <section>
+            <ul>
+                <li>
+                    <p>1 hellow how are you. i think your helth is good hellow how are you. i think your helth is good
+                        hellow how are you. i think your helth is good hellow how are you. i think your helth is good
+                    </p>
+                </li>
+                <li>2 hellow how are you. i think your helth is good hellow how are you. i think your helth is good
+                    hellow how are you. i think your helth is good hellow how are you. i think your helth is good</li>
+                <li> 3hellow how are you. i think your helth is good hellow how are you. i think your helth is good
+                    hellow how are you. i think your helth is good hellow how are you. i think your helth is good</li>
+                <li>4 hellow how are you. i think your helth is good hellow how are you. i think your helth is good
+                    hellow how are you. i think your helth is good hellow how are you. i think your helth is good</li>
+                <li>5 hellow how are you. i think your helth is good hellow how are you. i think your helth is good
+                    hellow how are you. i think your helth is good hellow how are you. i think your helth is good</li>
+                <li>6 hellow how are you. i think your helth is good hellow how are you. i think your helth is good
+                    hellow how are you. i think your helth is good hellow how are you. i think your helth is good</li>
+                <li>7 hellow how are you. i think your helth is good hellow how are you. i think your helth is good
+                    hellow how are you. i think your helth is good hellow how are you. i think your helth is good</li>
+            </ul>
+        </section>
+        <div class="Agree_modal">
+            <label for="">are you agree with my terms & conditions</label>
+            <input type="checkbox" id="agree_checkbox" required>
+        </div>
+        <div class="close_continue_btn">
+            <button id="close_agree_modal">cancle</button>
+            <button id="continue_agree_modal">continue</button>
+        </div>
+    </div>
+    <div class="truck_content_modal">
+        <button id="close_modal"></button>
+        <div class="add_truck_heading">
+            <h4>please! fill thw following requirement and add your truck in A-trucks</h4>
+        </div>
+        <div class="container_details_div">
+            <form action="Add_truck" method="POST" class="submit_form_adding_truck">{% csrf_token %}
+                <!-- first -->
+                <div class="container_presonl_detail">
+                    <h4>presonal details</h4>
+                    <div>
+                        <label for="">name</label>
+                        <input type="text" placeholder="name" name="name" required>
+                    </div>
+                    <div>
+                        <label for="">email</label>
+                        <input type="email" placeholder="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="">phone no.</label>
+                        <input type="tel" placeholder="phone no." name="phone_1" required>
+                    </div>
+                    <div>
+                        <label for="">altrenative phone no.</label>
+                        <input type="tel" placeholder="altrenative phone no." name="phone_2">
+                    </div>
+                    <div>
+                        <label for="">street no.</label>
+                        <input type="text" placeholder="street no." name="street_no">
+                    </div>
+                    <div>
+                        <label for="">address</label>
+                        <input type="text" placeholder="address" name="address_1" required>
+                    </div>
+                    <div>
+                        <label for="">full address</label>
+                        <input type="text" placeholder="full address" name="address_2" required>
+                    </div>
+                    <div>
+                        <label for="">zip-code</label>
+                        <input type="text" placeholder="zip-code" name="zip_code" required>
+                    </div>
+                    <div>
+                        <label for="">district</label>
+                        <select id="" name="district" required>
+                            <option value="Garhwa">Garhwa</option>
+                            <option value="Palamu">Palamu</option>
+                            <option value="Latehar">Latehar</option>
+                            <option value="Chatra">Chatra</option>
+                            <option value="Hazaribagh">Hazaribagh</option>
+                            <option value="Koderma">Koderma</option>
+                            <option value="Giridih">Giridih</option>
+                            <option value="Ramgarh">Ramgarh</option>
+                            <option value="Bokaro">Bokaro</option>
+                            <option value="Dhanbad">Dhanbad</option>
+                            <option value="Gumla">Gumla</option>
+                            <option value="Lohardaga">Lohardaga</option>
+                            <option value="Simdega">Simdega</option>
+                            <option value="Ranchi">Ranchi</option>
+                            <option value="Khunti">Khunti</option>
+                            <option value="West_Singhbhum">West Singhbhum</option>
+                            <option value="Saraikela_Kharsawan">Saraikela Kharsawan</option>
+                            <option value="East_Singhbhum">East Singhbhum</option>
+                            <option value="Jamtara">Jamtara</option>
+                            <option value="Deoghar">Deoghar</option>
+                            <option value="Dumka">Dumka</option>
+                            <option value="Pakur">Pakur</option>
+                            <option value="Godda">Godda</option>
+                            <option value="Sahebganj">Sahebganj</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">state</label>
+                        <select id="" name="state" required>
+                            <option value="jharkhand">jharkhand</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">nationality</label>
+                        <select id="" name="nationality" required>
+                            <option value="india">india</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- second  -->
+                <div class="container_presonl_detail">
+                    <h4>presonal details</h4>
+                    <div>
+                        <label for="">bank account no.</label>
+                        <input type="text" placeholder="bank account no." name="bank_account_no" required>
+                    </div>
+                    <div>
+                        <label for="">IFC code</label>
+                        <input type="text" placeholder="IFC code" name="IFC_code" required>
+                    </div>
+                    <div>
+                        <label for="">name of the bank</label>
+                        <input type="text" placeholder="name of the bank" name="bank_name" required>
+                    </div>
+                    <div>
+                        <label for="">pan card no.</label>
+                        <input type="text" placeholder="pan card no." name="pan_no" required>
+                    </div>
+                    <div>
+                        <label for="">aadhar no.</label>
+                        <input type="text" placeholder="aadhar no." name="aadhar_no" required>
+                    </div>
+                    <div>
+                        <label for="">adding truck type</label>
+                        <select id="" name="truck_type" required>
+                            <option value="micro">micro</option>
+                            <option value="mini">mini</option>
+                            <option value="medium">medium</option>
+                            <option value="max">max</option>
+                            <option value="ultra max">ultra max</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">vehicle company</label>
+                        <input type="text" placeholder="vehicle company" name="vehicle_company" required>
+                    </div>
+                    <div>
+                        <label for="">vehicle model</label>
+                        <input type="text" placeholder="vehicle model" name="vehicle_model" required>
+                    </div>
+                    <div>
+                        <label for="">chechis no.</label>
+                        <input type="text" placeholder="chechis no." name="chechis_no" required>
+                    </div>
+                    <div>
+                        <label for="">engine no.</label>
+                        <input type="text" placeholder="engine no." name="engine_no" required>
+                    </div>
+                    <div>
+                        <label for="">vehicle registration no.</label>
+                        <input type="text" placeholder="registration no." name="registration_no" required>
+                    </div>
+                </div>
+
+                <!-- third -->
+                <div class="container_presonl_detail">
+                    <h4>truck detail</h4>
+                    <div>
+                        <label for="">front side image of vehicle</label>
+                        <input type="file" name="front_img" required>
+                    </div>
+                    <div>
+                        <label for="">left side image of vehicle</label>
+                        <input type="file" name="left_img" required>
+                    </div>
+                    <div>
+                        <label for="">right side image of truck</label>
+                        <input type="file" name="right_img" required>
+                    </div>
+                    <div>
+                        <label for="">copy of pan card</label>
+                        <input type="file" name="pan_card" required>
+                    </div>
+                    <div>
+                        <label for="">copy of aadhar card</label>
+                        <input type="file" name="aadhar_card" required>
+                    </div>
+                    <div>
+                        <label for="">copy of pollution receipts</label>
+                        <input type="file" name="pollution_receipt" required>
+                    </div>
+                    <div>
+                        <label for="">copy of insurence</label>
+                        <input type="file" name="insurence" required>
+                    </div>
+                    <div>
+                        <label for="">copy of fitness certificate</label>
+                        <input type="file" name="fitness_certificate" required>
+                    </div>
+                    <div>
+                        <label for="">copy of tax receipts</label>
+                        <input type="file" name="tax_receipts" required>
+                    </div>
+                    <div>
+                        <label for="">copy of permit</label>
+                        <input type="file" name="permit" required>
+                    </div>
+                    <div>
+                        <label for="">copy of rc certificate</label>
+                        <input type="file" name="rc_certificate" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn_success" onclick="close_adding_truck_modal()">Upload</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block js %}
+{% load static %}
+<script src="{% static 'A_business/home_page.js' %}"></script>
+{% endblock %}

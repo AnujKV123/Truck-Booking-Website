@@ -1,0 +1,352 @@
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .headContent {
+    padding-top: 10vh;
+    color: white;
+    font-size: 3vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    width: 100%
+  }
+
+  .photo {
+    width: 100%
+  }
+
+  .containerbody{
+    background: url('https://images.unsplash.com/photo-1583392868475-1bad739bee61?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600"') no-repeat center center/cover;
+    height: 90vh;
+
+
+  }
+
+  * {
+    box-sizing: border-box
+  }
+
+  /* Slideshow container */
+  .slideshow-container {
+    margin-top: 2vh;
+    max-width: 100%;
+    height: 100%;
+    position: relative;
+    margin: auto;
+    /* background-color: red; */
+  }
+
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -7vh;
+    padding: 2vh;
+    color: black;
+    font-weight: bold;
+    font-size: 2vh;
+    transition: 0.6s ease;
+    border-radius: 0 0.5vh 0.5vh 0;
+    user-select: none;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 0.5vh 0 0 0.5vh;
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  /* Caption text */
+  .text {
+    color: black;
+    font-size: 2vh;
+    padding: 2vh 3vh;
+    position: absolute;
+    bottom: 2vh;
+    width: 100%;
+    text-align: center;
+    top: 70vh;
+  }
+  .text p{
+    margin-top: 10px;
+  }
+  .dotxx {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 183vh;
+  }
+
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 5s;
+    animation-name: fade;
+    animation-duration: 1s;
+  }
+
+  @-webkit-keyframes fade {
+    from {
+      opacity: .4
+    }
+
+    to {
+      opacity: 1
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: .4
+    }
+
+    to {
+      opacity: 1
+    }
+  }
+
+  .truckImg {
+    position: absolute;
+    max-width: 70vh;
+    max-height: 70vh;
+    margin-left: 10vh;
+    box-sizing: border-box ;
+    top: 10vh;
+    left: 30vw;
+  }
+
+  .truckItem{
+    max-width: 100%;
+    /* box-sizing: border-box; */
+  }
+
+  .bodycard{
+    position: absolute;
+    top: 42.5vh;
+    left: 20vh;
+    background-color: white;
+    text-align: center;
+    width:25vw;
+    /* height: 35vh; */
+    padding: 2vh;
+    border-radius: 0.5vh;
+    box-shadow: 2px 2px 2px 2px blue;
+  }
+  .container_point{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .point_box{
+    margin: 5px 10px 5px 10px;
+  }
+  #drop2{
+    display: none;
+  }
+  #drop3{
+    display: none;
+  }
+
+  .second-heading{
+    font-size: 3vh;
+    color: rgb(141, 4, 111);
+  }
+
+  .foembody{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3vh;
+  }
+  .inp-location{
+    margin: 0.3vh;
+    font-size: 2vh;
+    padding: 1.5vh;
+    outline: none;
+    border: none;
+    background-color: rgb(230, 228, 228);
+  }
+  .inp_time_system{
+    margin: 0.3vh;
+    font-size: 2vh;
+    padding: 1.5vh;
+    outline: none;
+    border: none;
+    background-color: rgb(230, 228, 228);
+    cursor: pointer;
+  }
+
+  .btn-body{
+    margin-top: 0.3vh;
+    font-size: 2vh;
+    height: 5vh;
+    padding: 1.5vh;
+    cursor: pointer;
+    border-radius: 0.1vh;
+    outline: none;
+    border: none;
+    background-color: rgb(182, 179, 179);
+    transition-property: background-color,color;
+    transition-duration: 0.3s;
+    cursor: pointer;
+  }
+  .btn-body:hover{
+    background-color: grey;
+    color: blue;
+  }
+
+  /* pickup modal */
+  .pickup_div{
+    position: absolute;
+    top: 42.5vh;
+    left: 20vh;
+    display: none;
+    background-color: white;
+    text-align: center;
+    width:25vw;
+    height: 35vh;
+    padding: 2vh;
+    border-radius: 0.5vh;
+    
+  }
+  .pickup_div h4{
+    font-size: 3vh;
+    color: rgb(141, 4, 111);
+  }
+
+  .close {
+    float: right;
+    font-size: 3vh;
+    cursor: pointer;
+    width: 2vh;
+    height: 2vh;
+    font-weight: bold;
+  }
+  .modal-body{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3vh;
+  }
+
+  #pickup_location_inp{
+    font-size: 2vh;
+    height: 5vh;
+    margin: 0.2vh;
+    text-align: center;
+    outline: none;
+    border: none;
+    background-color: rgb(230, 228, 228);
+  }
+
+  #pickup_location_current{
+    font-size: 2vh;
+    height: 5vh;
+    margin: 0.2vh;
+    outline: none;
+    border: none;
+    background-color: rgb(182, 179, 179);
+    transition-property: background-color,color;
+    transition-duration: 0.3s;
+    cursor: pointer;
+  }
+  #pickup_location_current:hover{
+    background-color: grey;
+    color: blue;
+
+  }
+
+    /* pickup modal */
+    .drop_div{
+      position: absolute;
+      top: 42.5vh;
+      left: 20vh;
+      display: none;
+      background-color: white;
+      text-align: center;
+      width:25vw;
+      height: 35vh;
+      padding: 2vh;
+      border-radius: 0.5vh;
+    }
+    .drop_div h4{
+      font-size: 3vh;
+      color: rgb(141, 4, 111);
+    }
+  
+    .close_drop {
+      float: right;
+      font-size: 3vh;
+      cursor: pointer;
+      width: 2vh;
+      height: 2vh;
+      font-weight: bold;
+    }
+  
+    .modal-body_drop{
+      display: flex;
+      flex-direction: column;
+      margin-top: 3vh;
+    }
+  
+    #drop_location_inp{
+      font-size: 2vh;
+      height: 5vh;
+      margin: 0.2vh;
+      text-align: center;
+      outline: none;
+      border: none;
+      background-color: rgb(230, 228, 228);
+    }
+  
+    #Schedule_later{
+      display: none;
+    }
+    #Schedule_later select{
+      margin: 0.3vh;
+      font-size: 2vh;
+      padding: 1.5vh;
+      width: 47.6%;
+      outline: none;
+      border: none;
+      background-color: rgb(230, 228, 228);
+      cursor: pointer;
+    }
+
+
+
+

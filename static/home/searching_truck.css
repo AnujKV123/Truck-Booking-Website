@@ -1,0 +1,440 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.booking{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(66, 63, 63);
+}
+.booking img{
+    padding: 5px;
+    width: 70px;
+    height: 70px;
+}
+.booking h2{
+    color: wheat;
+    margin-top: 25px;
+}
+
+.bookingNow{
+    margin-left: 600px;
+    display: flex;
+    flex-direction: row;
+}
+.bookingNow img{
+    margin-top: 30px;
+    width: 40px;
+    height: 10px;
+}
+.bookingNow h2{
+    font-size: 40px;
+}
+
+.SelectTruck{
+    display: none;
+    margin: 50px 10px 0px 10px;
+    width: 33%;
+    position: absolute;
+    left: 500px;
+}
+.SelectTruck a{
+    text-decoration: none;
+    color: black;
+}
+.h160{
+        margin-left: 180px;
+    font-size: 20px;
+}
+
+.TruckData{
+    padding: 5px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    background-color: gainsboro;
+    width: 500px;
+    height: 70px;
+}
+
+.TruckData1{
+    margin-right: 40px;
+}
+.TruckData1 img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+.TruckData2 b{
+    margin-top: 10px;
+}
+.TruckData2 p{
+    margin-top: 10px;
+}
+
+.map101{
+    height: 500px;
+    /* display: none; */
+    margin: 10px 0px 0px 230px;
+    width: 70%;
+}
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+    height: 100%;
+    width: 100%;
+    }
+      
+ /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+.map102{
+    /* display: none; */
+    margin-top: 10px;
+    width: 70%;
+    margin-left: 230px;
+}
+#continue101{
+    margin: 10px 0px 10px 0px;
+    padding: 10px;
+    font-size: 15px;
+    width: 150px;
+    background-color: #ccc6c6;
+    border: 2px solid;
+    border-radius: 3px;
+    cursor: pointer;
+    
+}
+#reOprnBtn{
+    height: 40px;
+    width: 40px;
+    outline: none;
+    border: 2px solid #6e6b6b;
+    font-size: 20px;
+    background-color: #fff;
+    color: #6e6b6b;
+    border-radius: 5px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    cursor: pointer;
+}
+
+.data101{
+    display: flex;
+    flex-direction: row;
+}
+
+.display101{
+    position: absolute;
+    background-color: black;
+    opacity: 0.5;
+    width: 1060px;
+    height: 50px;
+    top: 300px;
+    left: 233px;
+    text-align: center;
+    display: none;
+}
+.display101 p{
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+
+}
+
+
+.getOTP{
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    top: 200px;
+    left: 550px;
+    background-color: #fff;
+    box-shadow: 1px 1px 10px 1px #7e78789c;
+    border-radius: 5px;
+}
+
+.getOTP01 button{
+    height: 40px;
+    width: 40px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    background-color: #fff;
+    color: #6e6b6b;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.getOTP02{
+    text-align: center;
+}
+.styl101{
+    font-size: 25px;
+    margin: 5px 0px 5px 0px;
+}
+.styl102{
+    color: #a0a0a0;
+    margin-bottom: 10px;
+}
+
+.getOTP03{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 30px;
+    background-color: #d4d4d4;
+}
+.styl103{
+    color: #6e6b6b;
+    font-size: 20px;
+    padding: 10px;
+}
+.getOTP03 input{
+    outline: none;
+    border: none;
+    width: 300px;
+    border-radius: 5px;
+    padding-left: 20px;
+    font-size: 20px;
+    color: #6e6b6b;
+}
+.getOTP04{
+    justify-content: center;
+    display: flex;
+}
+.getOTP04 button{
+    width: 340px;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #d4d4d4;
+    color: #6e6b6b;
+}
+
+.setOTP{
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    top: 200px;
+    left: 550px;
+    background-color: #fff;
+    box-shadow: 1px 1px 10px 1px #7e78789c;
+    border-radius: 5px;
+}
+.setOTP a{
+    margin: 0px 0px 0px 300px;
+    color: blue;
+}
+
+.setOTP03 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 30px;
+    background-color: #d4d4d4;
+}
+
+.setOTP03 input {
+    outline: none;
+    border: none;
+    padding-left: 20px;
+    font-size: 20px;
+    color: #6e6b6b;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.B_continue{
+    padding: 10px;
+    background-color: lime;
+    border: none;
+    outline: none;
+    border-radius: 35px;
+    position: relative;
+    top: 17px;
+    left: 90px;
+    cursor: pointer;
+}
+
+/* user home page.html************************ */
+.containerMoreDetailsxx{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 900px;
+}
+#btnBookNowXX{
+    margin-right: 40px;
+    padding: 10px;
+    background-color: rgb(157, 255, 0);
+    cursor: pointer;
+    outline: none;
+    border-radius: 2px;
+    border: none;
+}
+#btnMyBookingsXX{
+    margin-right: 40px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+}
+#containerUserIMG{
+    background-color: white;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.container_fillName{
+    position: absolute;
+    width: 400px;
+    height: 250px;
+    background-color: #dcd5d5;
+    top: 200px;
+    left: 560px;
+    z-index: 2;
+}
+.container_ux{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.container_ux input{
+    padding: 10px;
+    font-size: 15px;
+}
+.container_ux label{
+    margin-left: 10px;
+}
+#update_ux{
+    padding: 10px;
+    font-size: 15px;
+    margin: 5px 0px 0px 160px;
+    color: green;
+    border: 1px solid;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#overlay2 {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+}
+
+.containerEditBookingDetails{
+    position: absolute;
+    top: 100px;
+    left: 500px;
+    width: 500px;
+    height: auto;
+    border-radius: 3px;
+    background-color: #e6e4e4;
+}
+.containerHeadEditBDetail{
+    background-color: #423f3f;
+    height: 70px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.containerHeadEditBDetail img{
+    width: 60px;
+    height: 60px;
+    margin: 5px 0px 5px 10px;
+}
+.containerDivEditBookingDetails{
+    background-color: white;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 2px;
+    /* border: 1px solid; */
+}
+.containerCancleButton{
+    background-color: red;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 2px;
+    /* border: 1px solid; */
+    cursor: pointer;
+    text-align: center;
+}
+.containerPaymentButton{
+    background-color: rgb(9, 255, 0);
+    margin: 5px;
+    padding: 5px;
+    border-radius: 2px;
+    /* border: 1px solid; */
+    text-align: center;
+}
+.containerPaymentButton b{
+    margin-bottom: 10px;
+    color: purple;
+}
+.buttonXXPayment{
+    display: flex;
+    flex-direction: row;
+}
+.PaymentButtons{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 2px;
+}
+
+.containerPicUserDTL{
+    position: absolute;
+    left: 1270px;
+    background-color: #dad8d8;
+    width: 200px;
+    top: 83px;
+    border-radius: 2px;
+    display: none;
+}
+.UserDTL{
+    padding: 10px;
+    background-color: white;
+    margin: 5px;
+    text-align: center;
+    border-radius: 2px;
+}
+.UserDTLBtn{
+    padding: 10px;
+    margin: 0px 5px 5px 5px;
+    text-align: center;
+    width: 95%;
+    outline: none;
+    border: 1px solid red;
+    color: red;
+    background-color: white;
+    border-radius: 2px;
+    cursor: pointer;
+}

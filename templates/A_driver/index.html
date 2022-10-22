@@ -1,0 +1,317 @@
+{% extends 'basic.html' %}
+
+{% block css %}
+{% load static %}
+{% if user.is_authenticated %}
+<link rel="stylesheet" type="text/css" href="{% static 'A_driver/home_page.css' %}">
+{% else %}
+<link rel="stylesheet" type="text/css" href="{% static 'A_driver/index.css' %}">
+{% endif %}
+{% endblock %}
+
+
+
+{% block title %}
+
+{% endblock %}
+
+
+
+{% block A_driverActive %}highlight{% endblock A_driverActive %}
+{% block body %}
+{% load static %}
+
+{% if user.is_authenticated %}
+<div class="container_B">
+    <nav class="A_business_logout">
+        <button id="b_user">User</button>
+        <form class="search_div" action="Search_driver_details" method="POST">{% csrf_token %}
+            <input type="text" id="query" name="query" placeholder="Search">
+            <button id="Search_btn" type="submit"></button>
+        </form>
+    </nav>
+    <div class="logout_body">
+        <ul>
+            <a href="#">Close account</a>
+            <a href="password-reset/">change password</a>
+            <a href="logout">Logout</a>
+        </ul>
+    </div>
+</div>
+<div class="driver_container">
+    <div class="aadd_btn_driver">
+        <button id="add_driver" onclick="term_and_condition_popup()"></button>
+    </div>
+    <div class="driver_Terms_Conditions_modal">
+        <h4>please read the following terms & conditions carefully</h4>
+        <section>
+            <ul>
+                <li>
+                    <p>1 hellow how are you. i think your helth is good hellow how are you. i think your helth is good
+                        hellow how are you. i think your helth is good hellow how are you. i think your helth is good
+                    </p>
+                </li>
+                <li>2 hellow how are you. i think your helth is good hellow how are you. i think your helth is good
+                    hellow how are you. i think your helth is good hellow how are you. i think your helth is good</li>
+                <li> 3hellow how are you. i think your helth is good hellow how are you. i think your helth is good
+                    hellow how are you. i think your helth is good hellow how are you. i think your helth is good</li>
+                <li>4 hellow how are you. i think your helth is good hellow how are you. i think your helth is good
+                    hellow how are you. i think your helth is good hellow how are you. i think your helth is good</li>
+                <li>5 hellow how are you. i think your helth is good hellow how are you. i think your helth is good
+                    hellow how are you. i think your helth is good hellow how are you. i think your helth is good</li>
+                <li>6 hellow how are you. i think your helth is good hellow how are you. i think your helth is good
+                    hellow how are you. i think your helth is good hellow how are you. i think your helth is good</li>
+                <li>7 hellow how are you. i think your helth is good hellow how are you. i think your helth is good
+                    hellow how are you. i think your helth is good hellow how are you. i think your helth is good</li>
+            </ul>
+        </section>
+        <div class="Driver_Agree_modal">
+            <label for="">are you agree with my terms & conditions</label>
+            <input type="checkbox" id="driver_agree_checkbox" required>
+        </div>
+        <div class="Driver_close_continue_btn">
+            <button id="Driver_close_agree_modal" onclick="Driver_close_agree_modal()">cancle</button>
+            <button id="Driver_continue_agree_modal" onclick="Driver_continue_agree_modal()">continue</button>
+        </div>
+    </div>
+    <div class="driver_content_modal">
+        <button id="close_modal_driver" onclick="Close_modal_driver()"></button>
+        <div class="add_driver_heading">
+            <h4>please! fill thw following requirement and add you as a A-driver</h4>
+        </div>
+        <div class="container_details_div">
+            <form action="Add_driver_details" method="POST" class="submit_form_adding_truck" enctype="multipart/form-data">{% csrf_token %}
+                <!-- first -->
+                <div class="container_presonl_detail">
+                    <div>
+                        <label for="">name</label>
+                        <input type="text" placeholder="name" name="name" required>
+                    </div>
+                    <div>
+                        <label for="">email</label>
+                        <input type="email" placeholder="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="">phone no.</label>
+                        <input type="tel" placeholder="phone no." name="phone_1" required>
+                    </div>
+                    <div>
+                        <label for="">altrenative phone no.</label>
+                        <input type="tel" placeholder="altrenative phone no." name="phone_2">
+                    </div>
+                    <div>
+                        <label for="">street no.</label>
+                        <input type="text" placeholder="street no." name="street_no">
+                    </div>
+                    <div>
+                        <label for="">address</label>
+                        <input type="text" placeholder="address" name="address_1" required>
+                    </div>
+                    <div>
+                        <label for="">full address</label>
+                        <input type="text" placeholder="full address" name="address_2" required>
+                    </div>
+                    <div>
+                        <label for="">zip-code</label>
+                        <input type="text" placeholder="zip-code" name="zip_code" required>
+                    </div>
+                </div>
+
+                <!-- second  -->
+                <div class="container_presonl_detail">
+                    <div>
+                        <label for="">district</label>
+                        <select id="" name="district" required>
+                            <option value="Garhwa">Garhwa</option>
+                            <option value="Palamu">Palamu</option>
+                            <option value="Latehar">Latehar</option>
+                            <option value="Chatra">Chatra</option>
+                            <option value="Hazaribagh">Hazaribagh</option>
+                            <option value="Koderma">Koderma</option>
+                            <option value="Giridih">Giridih</option>
+                            <option value="Ramgarh">Ramgarh</option>
+                            <option value="Bokaro">Bokaro</option>
+                            <option value="Dhanbad">Dhanbad</option>
+                            <option value="Gumla">Gumla</option>
+                            <option value="Lohardaga">Lohardaga</option>
+                            <option value="Simdega">Simdega</option>
+                            <option value="Ranchi">Ranchi</option>
+                            <option value="Khunti">Khunti</option>
+                            <option value="West_Singhbhum">West Singhbhum</option>
+                            <option value="Saraikela_Kharsawan">Saraikela Kharsawan</option>
+                            <option value="East_Singhbhum">East Singhbhum</option>
+                            <option value="Jamtara">Jamtara</option>
+                            <option value="Deoghar">Deoghar</option>
+                            <option value="Dumka">Dumka</option>
+                            <option value="Pakur">Pakur</option>
+                            <option value="Godda">Godda</option>
+                            <option value="Sahebganj">Sahebganj</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">state</label>
+                        <select id="" name="state" required>
+                            <option value="jharkhand">jharkhand</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">nationality</label>
+                        <select id="" name="nationality" required>
+                            <option value="india">india</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">bank account no.</label>
+                        <input type="text" placeholder="bank account no." name="bank_account_no" required>
+                    </div>
+                    <div>
+                        <label for="">IFSC code</label>
+                        <input type="text" placeholder="IFSC code" name="IFSC_code" required>
+                    </div> 
+                    <div>
+                        <label for="">name of the bank</label>
+                        <input type="text" placeholder="name of the bank" name="bank_name" required>
+                    </div>    
+                    <div>
+                        <label for="">account holder name</label>
+                        <input type="text" placeholder="account holder name" name="account_holder_name" required>
+                    </div>
+                    <div>
+                        <label for="">pan card no.</label>
+                        <input type="text" placeholder="pan card no." name="pan_no" required>
+                    </div>
+                </div>
+
+                <!-- third -->
+                <div class="container_presonl_detail">
+                    <div>
+                        <label for="">aadhar no.</label>
+                        <input type="text" placeholder="aadhar no." name="aadhar_no" required>
+                    </div>
+                    <div>
+                        <label for="">driving truck type</b></label>
+                        <select id="" name="truck_type" required>
+                            <option value="micro">micro</option>
+                            <option value="mini">mini</option>
+                            <option value="max">max</option>
+                            <option value="ultra max">ultra max</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">driving license no.</label>
+                        <input type="text" placeholder="driving license no." name="driving_license_no" required>
+                    </div>
+                    <div>
+                        <label for="">Driver Image</label>
+                        <input type="file" name="driver_image" required>
+                    </div>
+                    <div>
+                        <label for="">copy of driving licence</label>
+                        <input type="file" name="driving_licence" required>
+                    </div>
+                    <div>
+                        <label for="">copy of pan card</label>
+                        <input type="file" name="pan_card" required>
+                    </div>
+                    <div>
+                        <label for="">copy of aadhar card</label>
+                        <input type="file" name="aadhar_card" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn_success" onclick="close_adding_truck_modal()">save</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% else %}
+<div class="container">
+    <nav class="login_signup">
+        <button id="signup">Signup</button>
+        <button id="login">Login</button>
+    </nav>
+
+    <div class="A_business_login">
+        <div id="my-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h1>Login Here</h1>
+                </div>
+                <div class="modal-body">
+                    <form action="login" method="POST" id="login_form">{% csrf_token %}
+                        <div class="signup_design">
+                            <label for="login_username">username</label>
+                            <input type="text" placeholder="username" name="login_username" id="login_username"
+                                required>
+                        </div>
+
+                        <div class="signup_design">
+                            <label for="login_password">password</label>
+                            <input type="password" placeholder="password" name="login_password" id="login_password"
+                                required>
+                        </div>
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a href="password-reset/">forgot password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="A_business_Signup">
+        <div id="my-modal_Signup" class="modal_Signup">
+            <div class="modal-content_Signup">
+                <div class="modal-header_Signup">
+                    <span class="close_Signup">&times;</span>
+                    <h1>Signup Here</h1>
+                </div>
+                <div class="modal-body_Signup">
+                    <form action="signup" method="POST" id="Signup_form">
+                        {% csrf_token %}
+
+                        <div class="signup_design">
+                            <label for="signup_username">username</label>
+                            <input type="text" placeholder="username" id="signup_username" name="signup_username"
+                                required>
+                        </div>
+                        <div class="signup_design">
+                            <label for="email">email</label>
+                            <input type="email" placeholder="email" id="signup_email" name="signup_email" required>
+                        </div>
+                        <div class="signup_design">
+                            <label for="phone">phone</label>
+                            <input type="text" placeholder="phone" id="signup_phone" name="signup_phone" required>
+                        </div>
+                        <div class="signup_design">
+                            <label for="password">password</label>
+                            <input type="password" placeholder="password" id="signup_password" name="signup_password"
+                                required>
+                        </div>
+                        <div class="signup_design">
+                            <label for="password_again">password again</label>
+                            <input type="password" placeholder="password again" id="signup_password_again" name="signup_password_again"
+                                required>
+                        </div>
+                        <button type="submit" id="signup_submit">Signup</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block js %}
+{% load static %}
+{% if user.is_authenticated %}
+<script src="{% static 'A_driver/home_page.js' %}"></script>
+{% else %}
+<script src="{% static 'A_driver/index.js' %}"></script>
+{% endif %}
+
+{% endblock %}

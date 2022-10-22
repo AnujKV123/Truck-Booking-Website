@@ -1,0 +1,33 @@
+{% extends 'basic.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'A_blog/blogPost.css' %}">
+{% endblock %}
+
+{% block title %}<title> A_blog_content</title> {% endblock %}
+
+{% block A_blogActive %}highlight{% endblock A_blogActive %}
+{% block body %}
+{% load static %}
+    <div class="blogPost_body">
+        <strong class="blogPost_content_type">{{post.blog_type}}</strong>
+        <div class="blogPost_content">
+            <h3 class="blogPost_titel">. {{post.title}}</h3>
+            <hr>
+            <p class="blogPost_content">{{post.content}}</p>
+        </div>
+        <div class="blogPost_img">
+            <img src="/media/{{post.blog_thumbnail}}" alt="">
+        </div>
+
+    </div>
+{% endblock %}
+
+
+
+
+{% block js %}
+{% load static %}
+<script src="{% static 'A_blog/blogPost.js' %}"></script>
+{% endblock %}

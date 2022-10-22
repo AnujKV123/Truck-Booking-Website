@@ -1,0 +1,143 @@
+{% load static %}
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block title %} {% endblock %}
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .navbar {
+      background-color: rgb(66, 63, 63);
+      position: sticky;
+      top: 0px;
+      display: flex;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .logo {
+      width: 12vh;
+      height: 12vh;
+      margin: 0.2vh;
+    }
+
+    .navbar-brand {
+
+      font-size: 2.5vw;
+      color: wheat;
+      text-decoration: none;
+    }
+
+    .head_align_left {
+      width: 80%;
+      display: flex;
+      flex-direction: row-reverse;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .head_align_left li {
+      list-style: none;
+    }
+
+    .head_align_left li a {
+      color: white;
+      font-size: 1.5vw;
+      text-decoration: none;
+      margin-left: 3vh;
+      margin-right: 3vh;
+      cursor: pointer;
+      justify-content: center;
+
+    }
+    .active li a{
+      color: red;
+      background-color: white;
+    }
+    .flsh_message{
+      position: absolute;
+      top: 19vh;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      padding: 1vh;
+      overflow:hidden;
+      
+    }
+    .flsh_message strong{
+      font-size: 2.5vh;
+    }
+    .flsh_message p{
+      font-size: 2.5vh;
+    }
+    .flsh_message button{
+      font-size: 3vh;
+      border: none;
+      outline: none;
+      position: absolute;
+      right: 3vw;
+      cursor: pointer;
+    }
+    .flsh_message button:hover{
+      color: red;
+
+    }
+    body{
+      overflow-x: hidden;
+    }
+    .navbar .highlight{
+      color: red;
+      text-decoration: underline;
+    }
+  </style>
+
+  {% block css %}
+
+  {% endblock %}
+
+</head>
+  {% block head %}
+
+  {% endblock %}
+<body>
+  <nav class="navbar">
+    <a href="/"><img src="{% static 'image/logo.png' %}" class="logo" alt=""></a>
+    <a class="navbar-brand" href="/">A-trucks </a>
+    <div class="head_align_left">
+      <li><a href="/A_driver" id="driver_log_sign" class="{% block A_driverActive %} {% endblock A_driverActive %}">A-driver</a></li>
+      <li><a href="/A_business" id="business_log_sign" class="{% block A_businessActive %} {% endblock A_businessActive %}">A-business</a></li>
+      <li><a href="/A_blog" class="{% block A_blogActive %} {% endblock A_blogActive %}">A-blog</a></li>
+      <li><a href="/" class="{% block HomeActive %} {% endblock HomeActive %}">Home</a></li>
+    </div>
+  </nav>
+  {% for message in messages  %}
+  <div class="flsh_message" role="alert" style="background-color:{{ message.tags }}">
+    <strong >Message : </strong> 
+    <p>{{ message }}</p>
+    <button type="button" style="background-color:{{ message.tags }}" id="close_message">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+
+  {% block body %} {% endblock %}
+
+  <script>
+   const Close_message = document.getElementById("close_message");
+   Close_message.addEventListener("click",(e)=>{
+     document.querySelector(".flsh_message").style.display = "none";
+   })
+
+  </script>
+  {% block js %} {% endblock %}
+</body>
+
+</html>

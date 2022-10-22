@@ -1,0 +1,328 @@
+{% extends 'basic.html' %}
+
+{% block css %}
+{% load static %}
+{% if user.is_authenticated %}
+<link rel="stylesheet" type="text/css" href="{% static 'A_business/home_page.css' %}">
+{% else %}
+<link rel="stylesheet" type="text/css" href="{% static 'A_business/index.css' %}">
+{% endif %}
+{% endblock %}
+
+
+
+{% block title %}
+
+{% endblock %}
+
+
+
+{% block A_businessActive %}highlight{% endblock A_businessActive %}
+{% block body %}
+{% load static %}
+
+{% if user.is_authenticated %}
+<div class="container_B">
+    <nav class="back_nav">
+        <a href="/A_business"><button id="back_btn">&#8249; Back</button></a>
+        <div  class="driver_link" id="driver_link_Edit_Details">Edit Details</div>
+        <div  class="driver_link">Delete Profile</div>
+        <div  class="driver_link">Payment History</div>
+        <div  class="driver_link">Connected Truck</div>
+    </nav>
+</div>
+{% if a_business.0.Phone_1 %}
+<div class="container_fetch_driver_detail">
+    <div class="container_driver">
+        <h3>Presonal Details</h3>
+        <div class="container_p_details">
+            <div class="driver_img_section">
+                <img src="/media/{{a_business.0.user_img}}" alt="" class="driver_img">
+            </div>
+            <div class="driver_details">
+                <b>Name</b>
+                <p>{{a_business.0.Name}}</p>
+            </div>
+            <div class="driver_details">
+                <b>Email</b>
+                <p>{{a_business.0.Email}}</p>
+            </div>
+            <div class="driver_details">
+                <b>Phone no.</b>
+                <p>{{a_business.0.Phone_1}}</p>
+            </div>
+            <div class="driver_details">
+                <b>alt. Phone no.</b>
+                <p>{{a_business.0.Phone_2}}</p>
+            </div>
+            <div class="driver_details">
+                <b>Street no.</b>
+                <p>{{a_business.0.Street_no}}</p>
+            </div>
+            <div class="driver_details">
+                <b>Address</b>
+                <p>{{a_business.0.Address_1}}</p>
+            </div>
+            <div class="driver_details">
+                <b>alt. address</b>
+                <p>{{a_business.0.Address_2}}</p>
+            </div>
+            <div class="driver_details">
+                <b>zip cose</b>
+                <p>{{a_business.0.Zip_code}}<p1>
+            </div>
+            <div class="driver_details">
+                <b>District</b>
+                <p>{{a_business.0.District}}</p>
+            </div>
+            <div class="driver_details">
+                <b>State</b>
+                <p>{{a_business.0.State}}</p>
+            </div>
+            <div class="driver_details">
+                <b>Nationality</b>
+                <p>{{a_driver.0.Nationality}}</p>
+            </div>
+            <div class="driver_details">
+                <b>pan card no.</b>
+                <p>{{a_business.0.Pan_no}}</p>
+            </div>
+            <div class="driver_details">
+                <b>aadhar no.</b>
+                <p>{{a_business.0.Aadhar_no}}</p>
+            </div>
+            <div class="driver_details">
+                <b>driving Truck type</b>
+                <p>{{a_business.0.Driving_Truck_type}}</p>
+            </div>
+            <div class="driver_details">
+                <b>driving license no.</b>
+                <p>{{a_business.0.Driving_license_no}}</p>
+            </div>
+            <div class="driver_details">
+                <b>A-business profile ID</b>
+                <p>{{a_business.0.B_Profile_id}}</p>
+            </div>
+            <div class="driver_details">
+                <b>A-driver profile ID</b>
+                <p>{{a_business.0.D_Profile_id}}</p>
+            </div>
+            <div class="driver_details">
+                <b>date & time</b>
+                <p>{{a_business.0.timeStamp}}</p>
+            </div>
+        </div>
+        <h3>Uploaded Documents</h3>
+        <div class="container_uplod_docs">
+            <div class="driver_img_docs_section">
+                <b>Copy of Aadhar</b>
+                <img src="/media/{{a_business.0.copy_of_aadhar}}" alt="" class="docs_img" id="aadhar_img" onclick="show_aadhar()">
+            </div>
+            <div class="driver_img_docs_section">
+                <b>Copy of PAN card</b>
+                <img src="/media/{{a_business.0.copy_of_pan}}" alt="" class="docs_img" id="pan_img" onclick="show_pan()">
+            </div>
+            <div class="driver_img_docs_section">
+                <b>Copy of Driving Lisence</b>
+                <img src="/media/{{a_business.0.copy_of_license}}" alt="" class="docs_img" id="lisence_img" onclick="show_lisence()">
+            </div>
+        </div>
+        <h3>Bank Details</h3>
+        <div class="container_bank_details">
+            <div class="driver_details">
+                <b>Bank Account no.</b>
+                <p>{{a_business.0.Bank_account}}</p>
+            </div>
+            <div class="driver_details">
+                <b>IFSC code</b>
+                <p>{{a_business.0.Ifsc_code}}</p>
+            </div>
+            <div class="driver_details">
+                <b>Bank Name</b>
+                <p>{{a_business.0.Bank_name}}</p>
+            </div>
+            <div class="driver_details">
+                <b>account holder name</b>
+                <p>{{a_business.0.Acount_holder_name}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="container_driver_data">
+        <div class="overlay" id="overlay1"></div>
+        <div class="driver_img_docs_showX" id="container_aadhar_imgXX">
+            <div class="container_wwx">
+                <button class="close_tab_wwx" onclick="close_aadhar_imgXX()"></button>
+                <img src="/media/{{a_business.0.copy_of_aadhar}}" alt="" class="docs_imgx" id="aadhar_img">
+            </div>
+        </div>
+        <div class="driver_img_docs_showX" id="container_pan_imgXX">
+            <div class="container_wwx">
+                <button class="close_tab_wwx" onclick="close_pan_imgXX()"></button>
+                <img src="/media/{{a_business.0.copy_of_pan}}" alt="" class="docs_imgx" id="pan_img">
+            </div>
+        </div>
+        <div class="driver_img_docs_showX" id="container_lisence_imgXX">
+            <div class="container_wwx">
+                <button class="close_tab_wwx" onclick="close_lisence_imgXX()"></button>
+                <img src="/media/{{a_business.0.copy_of_license}}" alt="" class="docs_imgx" id="lisence_img">
+            </div>
+        </div>
+    </div>
+    <div class="container_driver_smallPopUp">
+        <div class="container_driver_edit">
+            <div class="driver_edit">
+                <div class="driver_xyz" onclick="Edit_Profile_Picture()">Profile Picture</div>
+                <div class="driver_xyz" onclick="Edit_Copy_of_Aadhar()">Copy of Aadhar</div>
+                <div class="driver_xyz" onclick="Edit_Copy_of_PAN()">Copy of PAN</div>
+                <div class="driver_xyz" onclick="Edit_Copy_of_Driving_Licence()">Copy of Driving Licence</div>
+                <div class="driver_xyz" onclick="Edit_presional_Detail()">presional Detail</div>
+                <div class="driver_xyz" onclick="Edit_bank_detail()">bank detail</div>
+            </div>
+        </div>
+    </div>
+    <div class="container_driver_bigPopUp">
+        <div class="overlayx" id="overlay2"></div>
+        <div id="container_edit_driver_box1" class="container_edit_driver_box">
+            <form action="update_Buser_img" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                <div class="content_main">
+                    <label for=""><b>Please select driver image</b></label>
+                    <input type="file" accept="image/*" name="user_update_image" style="padding: 5px;" required>
+                </div>
+                <div class="button_main">
+                    <div class="cancle" onclick="close_update_driver_img()">cancle</div>
+                    <button class="continue" type="submit">continue</button>
+                </div>
+            </form>
+        </div>
+
+        <form id="container_edit_driver_box2" class="container_edit_driver_box"action="update_Buser_aadhar" method="POST" enctype="multipart/form-data">{% csrf_token %}
+            <div class="content_main">
+                <label for=""><b>Please select copy of aadhar card</b></label>
+                <input type="file" accept="image/*" name="user_update_aadhar" style="padding: 5px;" required>
+            </div>
+            <div class="button_main">
+                <div class="cancle" onclick="close_update_driver_aadhar()">cancle</div>
+                <button class="continue" type="submit">continue</button>
+            </div>
+        </form>
+
+        <form id="container_edit_driver_box3" class="container_edit_driver_box"action="update_Buser_pan" method="POST" enctype="multipart/form-data">{% csrf_token %}
+            <div class="content_main">
+                <label for=""><b>Please select copy of pan card</b></label>
+                <input type="file" accept="image/*" name="user_update_pan" style="padding: 5px;" required>
+            </div>
+            <div class="button_main">
+                <div class="cancle" onclick="close_update_driver_pan()">cancle</div>
+                <button class="continue" type="submit">continue</button>
+            </div>
+        </form>
+
+        <form id="container_edit_driver_box4" class="container_edit_driver_box"action="update_Buser_license" method="POST" enctype="multipart/form-data">{% csrf_token %}
+            <div class="content_main">
+                <label for=""><b>Please select copy of driving license</b></label>
+                <input type="file" accept="image/*" name="driver_update_license" style="padding: 5px;" required>
+            </div>
+            <div class="button_main">
+                <div class="cancle" onclick="close_update_driver_license()">cancle</div>
+                <button class="continue" type="submit">continue</button>
+            </div>
+        </form>
+
+        <form id="container_edit_driver_box5" class="container_edit_driver_boxX"action="update_Buser_presional_Detail" method="POST" enctype="multipart/form-data">{% csrf_token %}
+           <h3 style="text-align: center;">Enter the details wants to update</h3>
+            <div class="content_mainx">
+                <div class="container_grid">
+                    <label for=""><b>Name</b></label>
+                    <input type="text" name="Buser_update_Name" style="padding: 10px;" value="{{a_business.0.Name}}" required>
+                </div>
+                <div class="container_grid">
+                    <label for=""><b>Email</b></label>
+                    <input type="text" name="Buser_update_Email" style="padding: 10px;" value="{{a_business.0.Email}}" required>
+                </div>
+                <div class="container_grid">
+                    <label for=""><b>Phone No.</b></label>
+                    <input type="text" name="Buser_update_Phone_1" style="padding: 10px;" value="{{a_business.0.Phone_1}}" required>
+                </div>
+                <div class="container_grid">
+                    <label for=""><b>Alternate Phone No.</b></label>
+                    <input type="text" name="Buser_update_Phone_2" style="padding: 10px;" value="{{a_business.0.Phone_2}}">
+                </div>
+                <div class="container_grid">
+                    <label for=""><b>Street No.</b></label>
+                    <input type="text" name="Buser_update_Street_no" style="padding: 10px;" value="{{a_business.0.Street_no}}">
+                </div>
+                <div class="container_grid">
+                    <label for=""><b>Address</b></label>
+                    <input type="text" name="Buser_update_Address_1" style="padding: 10px;" value="{{a_business.0.Address_1}}" required>
+                </div>
+                <div class="container_grid">
+                    <label for=""><b>Alternate Address</b></label>
+                    <input type="text" name="Buser_update_Address_2" style="padding: 10px;" value="{{a_business.0.Address_2}}">
+                </div>
+                <div class="container_grid">
+                    <label for=""><b>Zip Code</b></label>
+                    <input type="text" name="Buser_update_Zip_code" style="padding: 10px;" value="{{a_business.0.Zip_code}}" required>
+                </div>
+                <div class="container_grid">
+                    <label for=""><b>District</b></label>
+                    <input type="text" name="Buser_update_District" style="padding: 10px;" value="{{a_business.0.District}}" required>
+                </div>
+                <div class="container_grid">
+                    <label for=""><b>State</b></label>
+                    <input type="text" name="Buser_update_State" style="padding: 10px;" value="{{a_business.0.State}}" required>
+                </div>
+                <div class="container_grid">
+                    <label for=""><b>Nationality</b></label>
+                    <input type="text" name="Buser_update_Nationality" style="padding: 10px;" value="{{a_business.0.Nationality}}" required>
+                </div>
+                <div class="container_grid">
+                    <label for=""><b>Pan No.</b></label>
+                    <input type="text" name="Buser_update_Pan_no" style="padding: 10px;" value="{{a_business.0.Pan_no}}" required>
+                </div>
+                <div class="container_grid">
+                    <label for=""><b>Aadhar_no</b></label>
+                    <input type="text" name="Buser_update_Aadhar_no" style="padding: 10px;" value="{{a_business.0.Aadhar_no}}" required>
+                </div>
+                <div class="container_grid">
+                    <label for=""><b>Driving truck type</b></label>
+                    <input type="text" name="Buser_update_D_t_type" style="padding: 10px;" value="{{a_business.0.Driving_Truck_type}}" required>
+                </div>
+                <div class="container_grid">
+                    <label for=""><b>Driving license no.</b></label>
+                    <input type="text" name="Buser_update_license_no" style="padding: 10px;" value="{{a_business.0.Driving_license_no}}" required>
+                </div>
+            </div>
+            <div class="button_main">
+                <div class="cancleX" onclick="close_update_driver_P_details()">cancle</div>
+                <button class="continueX" type="submit">continue</button>
+            </div>
+        </form>
+
+        <form id="container_edit_driver_box6" class="container_edit_driver_box"action="update_driver_img" method="POST">{% csrf_token %}
+            <div class="content_main">
+                <label for=""><b>Please select driver image</b></label>
+                <input type="text" accept="image/*" name="driver_update_image" style="padding: 5px;"  required>
+            </div>
+            <div class="button_main">
+                <div class="cancle" onclick="close_update_driver_Bank_detail()">cancle</div>
+                <button class="continue" type="submit">continue</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% else %}
+<b>user is not verified please enter verified user</b>
+{% endif %}
+{% endif %}
+
+{% endblock %}
+
+{% block js %}
+{% load static %}
+{% if user.is_authenticated %}
+<script src="{% static 'A_business/home_page.js' %}"></script>
+{% else %}
+<script src="{% static 'A_business/index.js' %}"></script>
+{% endif %}
+
+{% endblock %}

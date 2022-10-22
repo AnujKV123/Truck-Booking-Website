@@ -1,0 +1,58 @@
+{% extends 'basic.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'A_blog/search.css' %}">
+{% endblock %}
+
+{% block title %}<title> A_blog_search</title> {% endblock %}
+
+{% block A_blogActive %}highlight{% endblock A_blogActive %}
+{% block body %}
+{% load static %}
+<div class="search_div">
+    <a href="/A_blog"><button id="back_btn" type="button">&#8249; Back</button></a>
+</div>
+<div class="container_Blog">
+    <h2 class="blog_head">In this blog you know all about A_trucks</h2>
+</div>
+<h2 class="search_head">Search results : -</h2>
+{% if allPosts|length < 1 %}
+<p>No search results</p>
+Your search query : <b>{{query}}</b> did not match any documents. <br>
+Suggestions:
+<ul>
+    <li>Make sure that all words are spelled correctly.</li>
+    <li>Try more general keywords.</li>
+    <li> Try fewer keywords.</li>
+    <li> Try different keywords.</li>
+    </li>
+</ul>
+{% endif %}
+<div class="body_protect_div">
+    {% for post in allPosts %}
+    <div class="thumbnail_body">
+        <div class="Thumbnail" id="blog_Thumbnail{{i}}">
+            <img src="/media/{{post.blog_thumbnail}}" alt="">
+        </div>
+        <div class="blog_content">
+            <strong class="inner_content_type">{{post.blog_type}}</strong>
+            <h3 class="inner_blog_titel">. {{post.title}}</h3>
+            <p class="inner_blog_content">{{post.content| truncatechars:100}}</p>
+            <div class="blog_continue">
+                <a href="/A_blog/{{post.slug}}" role="button" target="_blank">Continue reading</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+
+
+
+{% block js %}
+{% load static %}
+<script src="{% static 'A_blog/search.js' %}"></script>
+{% endblock %}

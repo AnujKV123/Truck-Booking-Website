@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/Searching_truck.css' %}">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="{% static 'home/Searching_truck.js' %}"></script>
+</head>
+<body>
+    <div class="booking">
+        <img src="{% static 'image/logo.png' %}" alt="">
+        <h2>A-trucks</h2>
+        <div class="containerMoreDetailsxx">
+            <a href="/" target="_blank"><button id="btnBookNowXX">Book Now</button></a>
+            <p id="btnMyBookingsXX">My Bookings</p>
+            <img src="{% static 'image/smp.png' %}" alt="" id="containerUserIMG">
+        </div>
+    </div>
+    <!-- <div class="bookingNow">
+        <h2>Booking Now</h2>
+        <img src="{% static 'image/3dot.gif' %}" alt="">
+    </div> -->
+{% if U_name == "not_filled" %}
+<div class="overlayx" id="overlay2" ></div>
+<div class="container_fillName">
+    <form>
+        <div id="container_u_name" class="container_ux">
+            <label for="">Name &nbsp;&nbsp;&nbsp;&nbsp;<b style="color: red; font-size: 10px;">required*</b></label>
+            <input type="text" placeholder="Name" required id="NameUx">
+        </div>
+        <div id="container_uemail" class="container_ux">
+            <label for="">Email &nbsp;&nbsp;&nbsp;&nbsp;<b style="color: red; font-size: 10px;">optional*</b></label>
+            <input type="email" placeholder="Email" id="EmailUx">
+        </div>
+        <button id="update_ux" type="button" onclick="updateUX()">continue</button>
+    </form>
+</div>
+{% endif %}
+{% if status == "ok" %}
+<div class="containerDisplayBookingDetails">
+    <div class="containerEditBookingDetails">
+        <div class="containerHeadEditBDetail">
+            <img src="{% static 'image/logo.png' %}" alt="">
+            <h3 style="color: wheat; margin-left: 120px;">Booking Details</h3>
+        </div>
+        <div class="containerDivEditBookingDetails">
+            <p><b>Truck Type :- </b>{{displayData.0.Trucktype}}</p>
+        </div>
+
+        <div class="containerDivEditBookingDetails">
+            <p><b>Pick-Up Location :- </b>{{displayData.0.pickupL}}</p>
+        </div>
+        {% if displayData.0.drop2L == '' and displayData.0.drop3L == '' %} 
+        <div class="containerDivEditBookingDetails">
+            <p><b>Drop Location :- </b>{{displayData.0.dropL}}</p>
+        </div>
+        {% endif %}
+
+        {% if displayData.0.drop2L and displayData.0.drop3L == '' %}   
+        <div class="containerDivEditBookingDetails">                   
+            <p><b>Drop Location1 :- </b>{{displayData.0.drop2L}}</p>
+        </div>
+        <div class="containerDivEditBookingDetails">
+            <p><b>Drop Location2 :- </b>{{displayData.0.dropL}}</p>
+        </div>
+        {% endif %}
+
+        {% if displayData.0.drop3L %}        
+        <div class="containerDivEditBookingDetails">                   
+            <p><b>Drop Location1 :- </b>{{displayData.0.drop2L}}</p>
+        </div>
+        <div class="containerDivEditBookingDetails">            
+            <p><b>Drop Location2 :- </b>{{displayData.0.drop3L}}</p>
+        </div>
+        <div class="containerDivEditBookingDetails">
+            <p><b>Drop Location3 :- </b>{{displayData.0.dropL}}</p>
+        </div>
+        {% endif %}
+
+        {% if displayData.0.bookingTime == "Now" %}      
+        <div class="containerDivEditBookingDetails">                 
+            <p><b>Booking Time :- </b>{{displayData.0.bookingTime}}</p>
+        </div>
+        {% endif %}
+
+        {% if displayData.0.scheduleDay %}   
+        <div class="containerDivEditBookingDetails">                   
+            <p><b>Schedule Day :- </b>{{displayData.0.scheduleDay}}</p>
+        </div>
+        {% endif %}
+
+        {% if displayData.0.scheduleTime %}           
+        <div class="containerDivEditBookingDetails">           
+            <p><b>Schedule Time :- </b>{{displayData.0.scheduleTime}}</p>
+        </div>
+        {% endif %}
+
+        <div class="containerDivEditBookingDetails">
+            <p><b>Distance :- </b>{{displayData.0.distance}}<b> km</b></p>
+        </div>
+
+        <div class="containerDivEditBookingDetails">
+            <p><b>Price :- </b>{{rate}}<b> Rs.</b></p>
+        </div>
+
+        <div class="containerCancleButton" onclick="CancleBooking()">Cancle Booking</div>
+        <div class="containerPaymentButton">
+            <b>Pay Now</b>
+            <div class="buttonXXPayment">
+                <button class="PaymentButtons" style="background-color: orange;">Pay Offline</button>
+                <button class="PaymentButtons" style="background-color: yellow;">Pay Online</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<div class="containerPicUserDTL">
+    <div class="UserDTL">
+        <p>hi</p>
+    </div>
+    <div class="UserDTL">
+        <p>hi</p>
+    </div>
+    <div class="UserDTL">
+        <p>hi</p>
+    </div>
+    <a href="/RedirectTo"><button class="UserDTLBtn">Log Out</button></a>
+</div>
+</body>
+{% load static %}
+</html>

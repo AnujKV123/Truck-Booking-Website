@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% if Search_X %}
+    <div class="truck_type_model_rc_no">
+        <p>{{Search_X.Vehicle_company}}</p>
+        <p>{{Search_X.Vehicle_model}}</p>
+        <p>{{Search_X.Registration_no}}</p>
+        <p>{{Search_X.Truck_type}}</p>
+        <p>{{Search_X.Si_no}}</p>
+        <p>{{Search_X}}</p>
+        <img src="/media/{{earch_X.Right_img}}" alt="">
+    </div>
+    {% endif %}
+{% if pyment_Details_X %}
+    <p>pyment_Details</p>
+    <p>{{pyment_Details_X.Vehicle_company}}</p>
+    <p>{{pyment_Details_X.Vehicle_model}}</p>
+    <p>{{pyment_Details_X.Registration_no}}</p>
+    <p>{{pyment_Details_X.Truck_type}}</p>
+    <p>{{pyment_Details_X.Si_no}}</p>
+    <p>{{pyment_Details_X.slug}}</p>
+    {% endif %}
+
+{% if Penalty_X %}
+    <p>Penalty</p>
+    {% endif %}
+
+{% if View_details_X %}
+    <p>View_details</p>
+    {% endif %}
+
+{% if Edit_details_X %}
+    <p>Edit_details_X</p>
+    {% endif %}
+
+    {% if Remove_truck_X %}
+    <p>remove truck</p>
+
+    {% endif %}
+</body>
+
+</html>

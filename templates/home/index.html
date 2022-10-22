@@ -1,0 +1,140 @@
+{% extends 'basic.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/index.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'home/footer.css' %}">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+{% endblock %}
+
+
+
+{% block title %}<title>home</title>{% endblock %}
+
+  {% block head %}
+<script src="https://maps.googleapis.com/maps/api/js?key={{G_api_key}}&libraries=places&callback=Fetch_google_api_data" async defer></script>
+  {% endblock %}
+
+{% block HomeActive %}highlight{% endblock HomeActive %}
+{% block body %}
+{% load static %}
+
+<div class="containerbody">
+  <div class="headContent">
+    <h1>Welcome to A-trucks</h1>
+    <p>This is fastest truck provider in india</p>
+  </div>
+  <!-- <div class="pickup_div">
+    <div id="my-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close" onclick="Set_Drop_val()">&times;</span>
+          <h4>Enter pickup location</h4>
+        </div>
+        <div class="modal-body">
+          <input type="text" placeholder="Enter pickup address" id="pickup_location_inp">
+          <button id="pickup_location_current">Current location</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <div class="drop_div">
+    <div id="my-modal_drop" class="modal_drop">
+      <div class="modal-content_drop">
+        <div class="modal-header_drop">
+          <span class="close_drop" onclick="Set_Pickup_val()">&times;</span>
+          <h4>Enter drop location</h4>
+        </div>
+        <div class="modal-body_drop">
+          <input type="text" placeholder="Enter drop address" id="drop_location_inp">
+        </div>
+        <div class="modal-footer_drop">
+
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="bodycard">
+    <h4 class="second-heading">Searching For Tuuck </h4>
+    <form  class="foembody" method="POST" enctype="multipart/form-data" action="Save_location/" target="_blank">{% csrf_token %}
+      <div class="container_point">
+        <div class="point_box">
+          <label for="">1 point</label>
+          <input type="radio" name="pionts" value="1" id="radioBtn1" onclick="radioData1()">
+        </div>
+        <div class="point_box">
+          <label for="">2 point</label>
+          <input type="radio" name="pionts" value="2" id="radioBtn2" onclick="radioData2()">
+        </div>
+        <div class="point_box">
+          <label for="">3 point</label>
+          <input type="radio" name="pionts" value="3" id="radioBtn3" onclick="radioData3()">
+        </div>
+      </div>
+      <input type="text" placeholder="Enter Pickup location" class="inp-location" name="Enter_Pickup_location" id="pickup" method="Post" required >
+      <input type="text" placeholder="Enter Drop Location" class="inp-location" name="Enter_Drop_Location" id="drop" required>
+      <input type="text" placeholder="Enter Drop Location 2" class="inp-location" name="Enter_Drop_Location2" id="drop2" >
+      <input type="text" placeholder="Enter Drop Location 3" class="inp-location" name="Enter_Drop_Location3" id="drop3" >
+
+      <select name="cars" id="set_time" class="inp_time_system" onchange="Sheduledule_later()" required>
+        <option value="Now" id="now">Now</option>
+        <option value="Schedule for later" id="later">Schedule for later</option>
+      </select>
+      <div id="Schedule_later">
+        <select name="Schedule_Day" id="set_day">
+          <option value="Today">Today</option>
+          <option value="Tomorrow">Tomorrow</option>
+        </select>
+        <select name="Schedule_Time" id="set_day_time">
+          <option value="10:00 AM">10:00 AM</option>
+          <option value="12:00 AM">12:00 AM</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-body" onclick="Search_truck_by_user()">search truck</button>
+    </form>
+  </div>
+
+</div>
+<div class="container">
+  <!-- Slideshow container -->
+  <div class="slideshow-container">
+
+    {% for i in product %}
+    <div class="mySlides fade">
+      <div class="truckItem">
+        <img src="{{i.image}}" class="truckImg">
+      </div>
+      <div class="text">
+        <h3>{{i.product_name}}</h3>
+        <p>{{i.desc}}</p>
+      </div>
+    </div>
+    {% if forloop.counter|divisibleby:1 and forloop.counter > 0 and not forloop.last %}
+
+    {% endif %}
+    {% endfor %}
+
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+
+  <!-- The dots/circles -->
+  <div style="text-align:center" class="dotxx">
+    <!-- <span class="dot" onclick="currentSlide(1)"></span> -->
+    {% for i in product %}
+    <span class="dot" onclick="currentSlide({{i.id}})"></span>
+    {% endfor %}
+  </div>
+</div>
+
+{% block footer %} {% include 'home/footer.html' %} {% endblock footer %}
+{% endblock %}
+
+{% block js %}
+{% load static %}
+<script src="{% static 'home/working_apis.js' %}"></script>
+<script src="{% static 'home/index.js' %}"></script>
+{% endblock %}

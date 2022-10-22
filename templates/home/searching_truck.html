@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/Searching_truck.css' %}">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="{% static 'home/Searching_truck.js' %}"></script>
+</head>
+<body>
+    <div class="booking">
+        <img src="{% static 'image/logo.png' %}" alt="">
+        <h2>A-trucks</h2>
+    </div>
+    <div class="bookingNow">
+        <h2>Booking Now</h2>
+        <img src="{% static 'image/3dot.gif' %}" alt="">
+    </div>
+
+<div class="SelectTruck">
+    <b class="h160">Please select truck</b>
+    
+    <div class="TruckData"  id="showTruckData1">
+        <div class="TruckData1">
+            <img src="{% static 'image/tlogo.png' %}" alt="">
+            <p id="micro_t"></p>
+        </div>
+        <div class="TruckData2">
+            <b id="micro_t_tp"></b>
+            <p id="micro_d"></p>
+            <input type="hidden" id="micro_truck">
+        </div>
+        <div class="TruckData3" id="TruckData3x">
+            
+        </div>
+    </div>
+    <div class="TruckData"  id="showTruckData2">
+        <div class="TruckData1">
+            <img src="{% static 'image/tlogo.png' %}" alt="">
+            <p id="mini_t"></p>
+        </div>
+        <div class="TruckData2">
+            <b id="mini_t_tp"></b>
+            <p id="mini_d"></p>
+            <input type="hidden" id="mini_truck">
+        </div>
+        <div class="TruckData3" id="TruckData3mi">
+        </div>
+    </div>
+    <div class="TruckData"  id="showTruckData3">
+        <div class="TruckData1">
+            <img src="{% static 'image/tlogo.png' %}" alt="">
+            <p id="medium_t"></p>
+        </div>
+        <div class="TruckData2">
+            <b id="medium_t_tp"></b>
+            <p id="medium_d"></p>
+            <input type="hidden" id="medium_truck">
+        </div>
+        <div class="TruckData3" id="TruckData3me">
+        </div>
+    </div>
+    <div class="TruckData"  id="showTruckData4">
+        <div class="TruckData1">
+            <img src="{% static 'image/tlogo.png' %}" alt="">
+            <p id="max_t"></p>
+        </div>
+        <div class="TruckData2">
+            <b id="max_t_tp"></b>
+            <p id="max_d"></p>
+            <input type="hidden" id="max_truck">
+        </div>
+        <div class="TruckData3" id="TruckData3max">
+        </div>
+    </div>
+    <div class="TruckData" id="showTruckData5">
+        <div class="TruckData1">
+            <img src="{% static 'image/tlogo.png' %}" alt="">
+            <p id="umax_t"></p>
+        </div>
+        <div class="TruckData2">
+            <b id="umax_t_tp"></b>
+            <p id="umax_d"></p>
+            <input type="hidden" id="umax_truck">
+        </div>
+        <div class="TruckData3" id="TruckData3umax">
+        </div>
+    </div>
+</div>
+
+<div class="map101" onclick="closePopup()">
+    <div id="map"></div>
+</div>
+<div class="map102">
+    <button id="reOprnBtn" onclick="reOprn101()">&#129120;</button>
+    <div class="data101" id="data101w"></div>
+    <div class="data101" id="data101x"></div>
+    <div class="data101" id="data101y"></div>
+    <button id="continue101" onclick="UpdateSearchLocation()" >Continue Booking</button>
+</div>
+<div class="display101">
+    <p>Please Dragg The Marker and Adjust Your Location</p>
+</div>
+</body>
+{% load static %}
+<script
+src="https://maps.googleapis.com/maps/api/js?key={{G_api_key}}&libraries=places&callback=initMap"
+async
+></script>
+</html>

@@ -1,0 +1,64 @@
+{% extends 'basic.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'A_blog/index.css' %}">
+{% endblock %}
+
+{% block title %}<title> A_blog</title> {% endblock %}
+
+
+{% block A_blogActive %}highlight{% endblock A_blogActive %}
+{% block body %}
+{% load static %}
+<form class="search_div" action="search" method="GET">
+    <input type="text" id="query" name="query" placeholder="Search">
+    <button id="Search_btn" type="submit"></button>
+</form>
+<div class="container_Blog">
+    <h2 class="blog_head">In this blog you know all about A_trucks</h2>
+</div>
+{% for blog_content, range, n in allProds%}
+<h2 class="blog_type">{{blog_content.0.blog_type}}</h2>
+<div class="body_protect_div">
+    <div class="thumbnail_body">
+        <div class="Thumbnail" id="blog_Thumbnail">
+            <img src="/media/{{blog_content.0.blog_thumbnail}}" alt="">
+        </div>
+        <div class="blog_content">
+            <strong class="inner_content_type">{{blog_content.0.blog_type}}</strong>
+            <h3 class="inner_blog_titel">. {{blog_content.0.title}}</h3>
+            <p class="inner_blog_content">{{blog_content.0.content| truncatechars:100}}</p>
+            <div class="blog_continue">
+                <a href="/A_blog/{{blog_content.0.slug}}" role="button" target="_blank">Continue reading</a>
+            </div>
+
+        </div>
+    </div>
+    {% for i in blog_content|slice:"1:"%}
+    <div class="thumbnail_body">
+        <div class="Thumbnail" id="blog_Thumbnail{{i}}">
+            <img src="/media/{{i.blog_thumbnail}}" alt="">
+        </div>
+        <div class="blog_content">
+            <strong class="inner_content_type">{{i.blog_type}}</strong>
+            <h3 class="inner_blog_titel">. {{i.title}}</h3>
+            <p class="inner_blog_content">{{i.content| truncatechars:100}}</p>
+            <div class="blog_continue">
+                <a href="/A_blog/{{i.slug}}" role="button" target="_blank">Continue reading</a>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}
+{% endblock %}
+
+
+
+
+{% block js %}
+{% load static %}
+<script src="{% static 'A_blog/index.js' %}"></script>
+{% endblock %}

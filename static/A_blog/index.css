@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.search_div{
+    display: flex;
+    background-color: rgb(17, 17, 17);
+    justify-content: center;
+    text-align: center;
+    padding: 1vh 0vh 1vh 0vh;
+    top: 12.3vh;
+    position: sticky;
+}
+#Search_btn{
+background-color: #2c2b2b;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%23FFFFFF'%3E%3Cpath d='M22.1 20.1l-4.8-4.8C18.4 13.8 19 12 19 10c0-5-4-9-9-9s-9 4-9 9 4 9 9 9c2 0 3.8-.6 5.3-1.7l4.8 4.8c.6.6 1.4.6 2 0 .5-.6.5-1.5 0-2zM10 16.5c-3.6 0-6.5-2.9-6.5-6.5S6.4 3.5 10 3.5s6.5 2.9 6.5 6.5-2.9 6.5-6.5 6.5z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+background-size: 24px 24px;
+background-position: center center;
+background-repeat: no-repeat;
+height: 5vh;
+width: 5vw;
+cursor: pointer;
+outline: none;
+border: none;
+border-radius: 0.1vh;
+}
+
+#query{
+    width: 35vw;
+    font-size: 2vh;
+    padding: 1vh;
+    margin: 0vh 0.1vh 0vh 0vh;
+}
+
+.container_Blog{
+    text-align: center;
+    margin-top: 6vh;
+}
+.blog_head{
+    font-size: 6vh;
+}
+.body_protect_div{
+    display: grid;
+    grid-gap: 2vh;
+    margin-left: 2.46vw;
+    margin-right: 2.46vw;
+    grid-template-columns:repeat(auto-fit, minmax(18vw, 18vw));
+    border-radius: 0.5vh;
+    
+
+}
+.thumbnail_body{
+    /* width: 16vw; */
+    height: 50vh;
+    background-color: rgb(49, 48, 48);
+    margin: 0vh 0.5ch 0vh 0.5vh;
+    border-radius: 0.2vh;
+
+}
+.thumbnail_body:hover{
+    box-shadow: 0.3vh 0.3vh 1vh 0.5vh rgb(0, 0, 0);
+}
+.Thumbnail{
+    height: 25vh;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5vh;
+    border-radius: 0.2vh;
+}
+
+.Thumbnail img{
+    height: 25vh;
+    width: 17.03vw;
+}
+
+.blog_type{
+    justify-content: center;
+    margin: 5vh 5vw 2vh 5vw;
+    font-size: 4vh;
+    color: mediumvioletred;
+}
+.inner_content_type{
+    color: rgb(75, 248, 7);
+    margin: 0.5vh 1vh 1vh 1vh;
+}
+.inner_blog_titel{
+    color: rgba(212, 0, 255, 0.979);
+    margin: 2vh 1vh 1vh 1vh;
+    font-size: 2.5vh;
+    text-align: left;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.inner_blog_content{
+    text-align: left;
+    margin: 1vh 1vh 1vh 2vh;
+    color: rgb(236, 236, 236);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.blog_continue a{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-weight: bold;
+}

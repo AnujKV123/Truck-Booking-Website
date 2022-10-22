@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/Searching_truck.css' %}">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="{% static 'home/Searching_truck.js' %}"></script>
+</head>
+<body>
+    <div class="booking">
+        <img src="{% static 'image/logo.png' %}" alt="">
+        <h2>A-trucks</h2>
+    </div>
+    <div class="bookingNow">
+        <h2>Booking Now</h2>
+        <img src="{% static 'image/3dot.gif' %}" alt="">
+    </div>
+
+<form class="getOTP">
+    <div class="getOTP01">
+        <button type="button" onclick="closeSetOTP()">&#129120;</button>
+    </div>
+    <div class="getOTP02">
+        <div class="styl02" style="color: blue;">Register/Sign In</div>
+        <div class="styl101">Enter your mobile number</div>
+        <div class="styl102">A 6-digit OTP will be sent on SMS</div>
+    </div>
+    <div class="getOTP03">
+        <div class="styl103">+91</div>
+        <input type="tel" name="phone_no" id="OTP_phoneNo" maxlength="10" onkeypress="return onlyNumberKey(event)" required minlength="10">
+    </div>
+    <div class="getOTP04">
+        <a id="goToVerification"><button type="button" onclick="OpenSetOTP()">Get OTP</button></a>
+    </div>
+</form>
+</body>
+{% load static %}
+<script
+src="https://maps.googleapis.com/maps/api/js?key={{G_api_key}}"
+async
+></script>
+</html>
